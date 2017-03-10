@@ -17,13 +17,16 @@
         <div>
             <img src="./statics/images/octojekyll.png">
             <h1>"Hello World"</h1>
+            <h2>Your IP is <span id="ip"></span></h2>
         </div>
     </section>
 </main>
+<script src="./statics/js/jquery.min.js"></script>
 <script type="text/javascript">
     document.addEventListener('touchmove', function(e) {
         e.preventDefault();
     });
+    $.get('https://api.ipify.org?format=json').done(function (data) { $('h2').html('Your IP is <span>' + data.ip + '</span>') })
 </script>
 </body>
 
